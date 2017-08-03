@@ -39,15 +39,32 @@ int forward()
 	printf("Moving forward \n");
 }
 
+int right()
+{
+	printf("Turning right \n");
+}
+
+int left()
+{
+	printf("Turning left \n");
+}
+
 int backward()
 {
 	printf("Moving backwards \n");
 }
 
+int stop()
+{
+	printf("STOP!!! \n");
+}
 int main()
 {
 	initKey();
 	char key;
+	int speed;
+	speed = 0;
+	int newspeed;
 	while (1)
 	{		
 		key = getKey();
@@ -60,14 +77,35 @@ int main()
 		if (key == 65)
 		{
 			forward();
+			speed = speed + 10;
+			printf("speed =" "%d \n", speed);
+			speed =speed;
 		}
 		if (key == 66)
 		{
+			speed = speed - 10;
 			backward();
+			printf("speed =" "%d \n", speed);
+			speed = speed;
+		}
+		if (key == 67)
+		{
+			right();
+		}
+		if (key == 68)
+		{
+			left();
+		}
+		if (key == 32)
+		{
+			speed = 0;
+			stop();
+			printf("speed =" "%d \n", speed);
 		}
 	}
 	resetKey();
 	return 0;
 }
+
 
 
